@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49263B36-8C2A-4A2F-A268-07A0106D7BDB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Newton</RootNamespace>
+    <AssemblyName>Newton</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flee.Net45, Version=1.0.0.0, Culture=neutral, PublicKeyToken=951a102ce2413032, processorArchitecture=MSIL">
+      <HintPath>packages\Flee.1.2.2\lib\net45\Flee.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Expression Tree\Constant.cs" />
+    <Compile Include="Expression Tree\ExpressionTree.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionArcCos.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionArcCtg.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionArcSin.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionArcTg.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionCos.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionCtg.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionLn.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionLog.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionSin.cs" />
+    <Compile Include="Expression Tree\Functions\FunctionTg.cs" />
+    <Compile Include="Expression Tree\Functions\IFunctionDual.cs" />
+    <Compile Include="Expression Tree\Functions\IFunctionSingular.cs" />
+    <Compile Include="Expression Tree\IExpressionNode.cs" />
+    <Compile Include="Expression Tree\Operations\IOperation.cs" />
+    <Compile Include="Expression Tree\Operations\OperationAddition.cs" />
+    <Compile Include="Expression Tree\Operations\OperationDivision.cs" />
+    <Compile Include="Expression Tree\Operations\OperationMultiplication.cs" />
+    <Compile Include="Expression Tree\Operations\OperationPower.cs" />
+    <Compile Include="Expression Tree\Operations\OperationSubtraction.cs" />
+    <Compile Include="Expression Tree\Variable.cs" />
+    <Compile Include="MathMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MathMethods.Designer.cs">
+      <DependentUpon>MathMethods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parser\ExpressionConverter.cs" />
+    <Compile Include="Parser\ParseHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MathMethods.resx">
+      <DependentUpon>MathMethods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
